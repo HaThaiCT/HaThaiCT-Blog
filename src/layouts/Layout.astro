@@ -1,0 +1,59 @@
+---
+import {
+  CommonHead,
+  WebAnalytics,
+  ThemeLoader,
+  AccentColorInjector,
+  PrintVersion,
+} from '@/components/head'
+import { BackToTopFAB } from '@/components/BackToTopFAB'
+import { ToastContainer } from '@/components/ToastContainer'
+import { ModalStack } from '@/components/ui/modal'
+import '@/styles/global.css'
+import Config from '@/astro-obsidian.config'
+
+const { site } = Config
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+}
+
+const { title, description, image } = Astro.props
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <CommonHead title={title} description={description} image={image} />
+    <WebAnalytics />
+    <ThemeLoader />
+    <AccentColorInjector />
+    <PrintVersion />
+    <!-- Google tag (gtag.js) -->
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-SZLDRWVHS1" />
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+        function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-SZLDRWVHS1');
+    </script>
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2090905634739091"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <slot />
+
+    <BackToTopFAB client:only="react" />
+    <ToastContainer client:only="react" />
+    <ModalStack client:only="react" />
+  </body>
+</html>
