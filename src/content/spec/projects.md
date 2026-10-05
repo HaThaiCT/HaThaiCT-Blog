@@ -1,5 +1,5 @@
 ---
-title: 项目
-description: 这些是我创建或参与的项目，如果你感兴趣不妨去给个 Star。
+title: Dự án
+description: Các dự án mã nguồn mở và sản phẩm cá nhân mà mình đã xây dựng hoặc tham gia phát triển.
 comments: false
 ---

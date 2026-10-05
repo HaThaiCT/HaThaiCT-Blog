@@ -64,7 +64,7 @@ export interface Waline {
 }
 
 export interface Comments {
-  enable: 'giscus' | 'waline'
+  enable: 'giscus' | 'waline' | false | ''
   giscus: Giscus
   waline: Waline
 }

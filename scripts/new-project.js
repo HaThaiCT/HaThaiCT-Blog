@@ -8,30 +8,30 @@ function getProjectFullPath(fileName) {
 }
 
 const fileName = await input({
-  message: '请输入文件名称',
+  message: 'Nhập tên định danh dự án (slug)',
   validate: (value) => {
     if (!isFileNameSafe(value)) {
-      return '文件名只能包含字母、数字和连字符'
+      return 'Tên file chỉ được chứa chữ cái, số và dấu gạch ngang'
     }
     const fullPath = getProjectFullPath(value)
     if (fs.existsSync(fullPath)) {
-      return `${fullPath} 已存在`
+      return `${fullPath} đã tồn tại`
     }
     return true
   },
 })
 
 const title = await input({
-  message: '请输入项目名称',
+  message: 'Nhập tên dự án',
 })
 const description = await input({
-  message: '请输入项目描述',
+  message: 'Nhập mô tả dự án',
 })
 const link = await input({
-  message: '请输入项目地址',
+  message: 'Nhập địa chỉ dự án (URL)',
 })
 const image = await input({
-  message: '请输入预览图片地址',
+  message: 'Nhập đường dẫn ảnh xem trước (Preview Image URL)',
 })
 
 const content = `title: ${title}
@@ -42,4 +42,4 @@ image: ${image}
 
 const fullPath = getProjectFullPath(fileName)
 fs.writeFileSync(fullPath, content)
-console.log(`${fullPath} 创建成功`)
+console.log(`${fullPath} đã được tạo thành công!`)

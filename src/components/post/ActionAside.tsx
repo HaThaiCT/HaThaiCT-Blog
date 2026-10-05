@@ -16,7 +16,7 @@ interface ShareData {
 
 const shareList = [
   {
-    name: 'Twitter',
+    name: 'X (Twitter)',
     icon: 'icon-x',
     onClick: (data: ShareData) => {
       window.open(
@@ -25,16 +25,18 @@ const shareList = [
     },
   },
   {
-    name: '复制链接',
+    name: 'Sao chép liên kết',
     icon: 'icon-link',
     onClick: (data: ShareData) => {
       navigator.clipboard.writeText(data.url)
-      toast.success('已复制到剪贴板')
+      toast.success('Đã sao chép liên kết vào bộ nhớ tạm')
     },
   },
 ]
 
 export function ActionAside() {
+  const hasSponsor = Boolean(sponsor.wechat || sponsor.github || sponsor.buymeacoffee)
+
   return (
     <div
       className="absolute left-0 bottom-0 flex flex-col gap-4"
@@ -43,7 +45,7 @@ export function ActionAside() {
       }}
     >
       <ShareButton />
-      <DonateButton />
+      {hasSponsor && <DonateButton />}
     </div>
   )
 }
@@ -54,7 +56,7 @@ function ShareButton() {
   const { present } = useModal()
 
   const url = new URL(postSlug, site.url).href
-  const text = `嘿，我发现了一片宝藏文章「${postTitle}」哩，快来看看吧！`
+  const text = `Bài viết hay từ ${site.title}: 「${postTitle}」`
 
   const openModal = () => {
     present({
@@ -82,16 +84,16 @@ function ShareModal({ url, text }: { url: string; text: string }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
     >
-      <h2 className="px-3 py-1 font-bold">分享此内容</h2>
+      <h2 className="px-3 py-1 font-bold">Chia sẻ nội dung</h2>
       <hr className="my-2 border-primary" />
       <div className="px-3 py-2 grid grid-cols-[180px_auto] gap-3">
         <QR.QRCodeSVG value={url} size={180} />
         <div className="flex flex-col gap-2">
-          <div className="text-sm">分享到...</div>
+          <div className="text-sm">Chia sẻ lên...</div>
           <ul className="flex flex-col gap-2">
             {shareList.map((item) => (
               <li
-                className="px-2 py-1 flex gap-2 cursor-pointer rounded-md hover:bg-secondary"
+                className="px-2 py-1 flex gap-2 cursor-pointer rounded-md hover:bg-secondary items-center"
                 key={item.name}
                 onClick={() => item.onClick({ url, text })}
                 role="button"
@@ -132,22 +134,24 @@ function DonateButton() {
 function DonateContent() {
   return (
     <motion.div
+      className="p-4"
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 20, opacity: 0 }}
     >
-      <h2 className="text-center mb-5">感谢您的支持，这将成为我前进的最大动力。</h2>
-      <div className="flex flex-wrap gap-4 justify-center">
-        <img
-          className="object-cover"
-          width={300}
-          height={300}
-          src={sponsor.wechat}
-          alt="微信赞赏码"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+      <h2 className="text-center mb-5 font-medium">Cảm ơn sự ủng hộ và đồng hành của bạn!</h2>
+      {sponsor.github && (
+        <div className="text-center">
+          <a
+            href={sponsor.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline"
+          >
+            Ghé thăm GitHub của tác giả
+          </a>
+        </div>
+      )}
     </motion.div>
   )
 }

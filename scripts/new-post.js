@@ -8,21 +8,21 @@ function getPostFullPath(fileName) {
 }
 
 const fileName = await input({
-  message: '请输入文件名称',
+  message: 'Nhập tên file (slug, vd: bai-viet-moi)',
   validate: (value) => {
     if (!isFileNameSafe(value)) {
-      return '文件名只能包含字母、数字和连字符'
+      return 'Tên file chỉ được chứa chữ cái, số và dấu gạch ngang'
     }
     const fullPath = getPostFullPath(value)
     if (fs.existsSync(fullPath)) {
-      return `${fullPath} 已存在`
+      return `${fullPath} đã tồn tại`
     }
     return true
   },
 })
 
 const title = await input({
-  message: '请输入文章标题',
+  message: 'Nhập tiêu đề bài viết',
 })
 
 const content = `---
@@ -36,4 +36,4 @@ draft: false
 
 const fullPath = getPostFullPath(fileName)
 fs.writeFileSync(fullPath, content)
-console.log(`${fullPath} 创建成功`)
+console.log(`${fullPath} đã được tạo thành công!`)

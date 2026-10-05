@@ -2,44 +2,33 @@ import { defineConfig } from './utils/defineConfig'
 
 export default defineConfig({
   site: {
-    url: 'https://linaaaqi.com',
-    title: 'Linaaaqi',
-    description: '这是一个使用 Astro 和 React 开发的博客主题。',
-    keywords: 'Linaaaqi,blog,Astro,theme,linaaaqi,博客主题',
-    lang: 'zh-CN',
+    url: 'https://hathaict.github.io',
+    title: 'Hà Thái Blog',
+    description:
+      'Blog cá nhân của Cao Trần Hà Thái - Chia sẻ về lập trình, công nghệ và cuộc sống.',
+    keywords: 'HaThaiCT, Hà Thái, Cao Trần Hà Thái, blog cá nhân, lập trình, công nghệ',
+    lang: 'vi-VN',
     favicon: '/favicon.ico',
     appleTouchIcon: '/apple-touch-icon.png',
   },
   author: {
-    name: 'linaaaqi',
-    twitterId: '@linaaaqi',
-    avatar: 'https://s2.loli.net/2024/04/30/ozsnuS5Ihf3xMBG.webp',
+    name: 'Cao Trần Hà Thái',
+    twitterId: '',
+    avatar: 'https://github.com/HaThaiCT.png',
   },
   hero: {
-    name: 'Linaaaqi',
-    bio: 'A static blog template build with Astro and React.',
-    description: 'Clean, Cute, Fast.',
+    name: 'Hà Thái',
+    bio: 'Lập trình viên & Người đam mê công nghệ.',
+    description: 'Học hỏi, chia sẻ và sáng tạo mỗi ngày.',
     socials: [
       {
         name: 'Github',
         icon: 'icon-github',
-        url: 'https://github.com/linaaaqi/astro-obsidian',
+        url: 'https://github.com/HaThaiCT',
         color: 'rgb(24, 23, 23)',
       },
-      {
-        name: 'X',
-        icon: 'icon-x',
-        url: 'https://twitter.com/linaaaqi',
-        color: 'rgb(36, 46, 54)',
-      },
-      {
-        name: 'Email',
-        icon: 'icon-mail',
-        url: 'mailto:linaaaqi@outlook.com',
-        color: 'rgb(212, 70, 56)',
-      },
     ],
-    yiyan: '当第一颗卫星飞向大气层外，我们便以为自己终有一日会征服宇宙。',
+    yiyan: 'Hành trình vạn dặm bắt đầu từ một bước chân.',
   },
   color: {
     accent: [
@@ -69,27 +58,27 @@ export default defineConfig({
   },
   menus: [
     {
-      name: '首页',
+      name: 'Trang chủ',
       link: '/',
       icon: 'icon-pantone',
     },
     {
-      name: '归档',
+      name: 'Lưu trữ',
       link: '/archives',
       icon: 'icon-archive',
     },
     {
-      name: '项目',
+      name: 'Dự án',
       link: '/projects',
       icon: 'icon-flask',
     },
     {
-      name: '关于',
+      name: 'Giới thiệu',
       link: '/about',
       icon: 'icon-ghost',
     },
     {
-      name: '友链',
+      name: 'Liên kết',
       link: '/friends',
       icon: 'icon-hearts',
     },
@@ -98,25 +87,25 @@ export default defineConfig({
     perPage: 10,
   },
   footer: {
-    startTime: '2019-05-28T00:00:00Z',
+    startTime: '2026-10-06T00:00:00Z',
   },
   comments: {
-    enable: 'giscus',
+    enable: false,
     giscus: {
-      repo: 'linaaaqi/blog',
-      repoId: 'R_kgDONiDwnQ',
+      repo: 'HaThaiCT/HaThaiCT.github.io',
+      repoId: '',
       category: 'Announcements',
-      categoryId: 'DIC_kwDONiDwnc4ClgYb',
+      categoryId: '',
     },
     waline: {
       serverURL: '',
     },
   },
   sponsor: {
-    wechat: 'https://object.linaaaqi.com/bed%2F2024%2F0507_6e3e8f73df2d4e6d.webp',
+    wechat: '',
     alipay: '',
     paypal: '',
-    github: '',
+    github: 'https://github.com/HaThaiCT',
     patreon: '',
     buymeacoffee: '',
   },

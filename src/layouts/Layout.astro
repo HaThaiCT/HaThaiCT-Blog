@@ -31,23 +31,6 @@ const { title, description, image } = Astro.props
     <ThemeLoader />
     <AccentColorInjector />
     <PrintVersion />
-    <!-- Google tag (gtag.js) -->
-    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-SZLDRWVHS1" />
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-        function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-SZLDRWVHS1');
-    </script>
-    <!-- Google AdSense -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2090905634739091"
-      crossorigin="anonymous"
-    />
   </head>
   <body>
     <slot />

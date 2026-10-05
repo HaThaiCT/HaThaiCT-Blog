@@ -1,18 +1,18 @@
 ---
-title: 朋友们
-description: 我的小伙伴们和一些有趣的站点。
-comments: true
+title: Liên kết bạn bè
+description: Danh sách blog của bạn bè và các trang web hữu ích.
+comments: false
 ---
 
-## 怎么申请友链？
+## Cách trao đổi liên kết (Friend Links)
 
-想要交换友链的小伙伴们，欢迎去本站的 [Github 仓库](https://github.com/linaaaqi/astro-obsidian/tree/main/src/content/friends)提交一个 PR。审核通过后，就可以在这里展示啦。
+Nếu bạn muốn trao đổi liên kết blog, bạn có thể tạo một Pull Request trên GitHub của repo này.
 
-请在`/src/content/friends/`目录下添加一个`<short-name>.yaml`文件，参考格式：
+Vui lòng thêm file `<short-name>.yaml` trong thư mục `/src/content/friends/` theo định dạng sau:
 
 ```yml
-title: 网站名称
-description: 一句话介绍下你的网站或者你自己
-link: 网站地址
-avatar: 头像地址
+title: Tên blog / website
+description: Mô tả ngắn gọn về trang web hoặc bản thân bạn
+link: Địa chỉ website (URL)
+avatar: Đường dẫn ảnh đại diện (Avatar URL)
 ```
