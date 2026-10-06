@@ -21,7 +21,7 @@ export function Waline() {
       imageUploader: false,
       search: false,
       locale: {
-        placeholder: '发条友善的评论吧（支持 Markdown 语法）…',
+        placeholder: 'Để lại một bình luận thân thiện (hỗ trợ Markdown)…',
       },
       emoji: ['//unpkg.com/@waline/emojis@1.1.0/bilibili'],
     })

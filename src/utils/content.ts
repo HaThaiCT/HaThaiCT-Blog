@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content'
 
-// 获取所有文章
+// Lấy tất cả bài viết
 async function getAllPosts() {
   const allPosts = await getCollection('posts', ({ data }) => {
     return import.meta.env.PROD ? !data.draft : true
@@ -9,7 +9,7 @@ async function getAllPosts() {
   return allPosts
 }
 
-// 获取所有文章，发布日期升序
+// Lấy tất cả bài viết, sắp xếp theo ngày đăng tăng dần
 async function getNewestPosts() {
   const allPosts = await getAllPosts()
 
@@ -18,7 +18,7 @@ async function getNewestPosts() {
   })
 }
 
-// 获取所有文章，发布日期降序
+// Lấy tất cả bài viết, sắp xếp theo ngày đăng giảm dần
 export async function getOldestPosts() {
   const allPosts = await getAllPosts()
 
@@ -27,7 +27,7 @@ export async function getOldestPosts() {
   })
 }
 
-// 获取所有文章，置顶优先，发布日期降序
+// Lấy tất cả bài viết, ưu tiên bài ghim, sắp xếp theo ngày đăng giảm dần
 export async function getSortedPosts() {
   const allPosts = await getAllPosts()
 
@@ -40,7 +40,7 @@ export async function getSortedPosts() {
   })
 }
 
-// 获取所有文章的字数
+// Lấy tổng số từ của tất cả bài viết
 export async function getAllPostsWordCount() {
   const allPosts = await getAllPosts()
 
@@ -57,12 +57,12 @@ export async function getAllPostsWordCount() {
   return wordCount
 }
 
-// 转换为 URL 安全的 slug，删除点，空格转为短横线，大写转为小写
+// Chuyển đổi thành slug an toàn cho URL, bỏ dấu chấm, khoảng trắng thành gạch ngang, chữ thường
 export function slugify(text: string) {
   return text.replace(/\./g, '').replace(/\s/g, '-').toLowerCase()
 }
 
-// 获取所有分类
+// Lấy tất cả danh mục
 export async function getAllCategories() {
   const newestPosts = await getNewestPosts()
 
@@ -89,7 +89,7 @@ export async function getAllCategories() {
   return allCategories
 }
 
-// 获取所有标签
+// Lấy tất cả thẻ (tags)
 export async function getAllTags() {
   const newestPosts = await getNewestPosts()
 
@@ -116,7 +116,7 @@ export async function getAllTags() {
   return allTags
 }
 
-// 获取热门标签
+// Lấy các thẻ phổ biến nhất
 export async function getHotTags(len = 5) {
   const allTags = await getAllTags()
 

@@ -1,4 +1,4 @@
-// 获取两个日期的相对时间
+// Lấy khoảng thời gian tương đối giữa hai ngày
 export function getRelativeTime(startDate: Date, endDate = new Date()) {
   const diffSeconds = Math.floor((endDate.getTime() - startDate.getTime()) / 1000)
   if (diffSeconds < 0) {
@@ -6,38 +6,37 @@ export function getRelativeTime(startDate: Date, endDate = new Date()) {
   }
   const diffMinutes = Math.floor(diffSeconds / 60)
   if (diffMinutes < 10) {
-    return '刚刚'
+    return 'Vừa xong'
   }
   if (diffMinutes < 60) {
-    return `${diffMinutes} 分钟前`
+    return `${diffMinutes} phút trước`
   }
   const diffHours = Math.floor(diffMinutes / 60)
   if (diffHours < 24) {
-    return `${diffHours} 小时前`
+    return `${diffHours} giờ trước`
   }
   const diffDays = Math.floor(diffHours / 24)
   if (diffDays < 10) {
-    return `${diffDays} 天前`
+    return `${diffDays} ngày trước`
   }
   return null
 }
 
-// 获取一个格式化的日期，格式为：2024 年 1 月 1 日 星期一
+// Lấy ngày đã được định dạng: DD/MM/YYYY
 export function getFormattedDate(date: Date) {
-  const year = date.getFullYear() % 100
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][date.getDay()]
+  const year = date.getFullYear()
+  const month = padZero(date.getMonth() + 1)
+  const day = padZero(date.getDate())
 
-  return `${year} 年 ${month} 月 ${day} 日 ${week}`
+  return `${day}/${month}/${year}`
 }
 
-// 数字前补 0
+// Số phía trước đệm 0
 function padZero(number: number, len = 2) {
   return number.toString().padStart(len, '0')
 }
 
-// 获取格式化后的日期时间，格式：2024 年 01 月 01 日 12:00
+// Lấy ngày giờ đã được định dạng: HH:mm ngày DD/MM/YYYY
 export function getFormattedDateTime(date: Date) {
   const year = date.getFullYear()
   const month = padZero(date.getMonth() + 1)
@@ -45,23 +44,23 @@ export function getFormattedDateTime(date: Date) {
   const hours = padZero(date.getHours())
   const minutes = padZero(date.getMinutes())
 
-  return `${year} 年 ${month} 月 ${day} 日 ${hours}:${minutes}`
+  return `${hours}:${minutes} ngày ${day}/${month}/${year}`
 }
 
-// 获取两个日期的相差的天数
+// Lấy số ngày chênh lệch giữa hai ngày
 export function getDiffInDays(startDate: Date, endDate = new Date()) {
   return Math.floor((endDate.getTime() - startDate.getTime()) / (1000 * 86400))
 }
 
-// 获取一个短的日期，格式为：04-20
+// Lấy ngày ngắn: DD/MM
 export function getShortDate(date: Date) {
   const month = padZero(date.getMonth() + 1)
   const day = padZero(date.getDate())
 
-  return `${month}-${day}`
+  return `${day}/${month}`
 }
 
-// 获取日期所在的年一共多少天
+// Lấy tổng số ngày trong năm
 export function getDaysInYear(date: Date) {
   const year = date.getFullYear()
   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
@@ -70,13 +69,13 @@ export function getDaysInYear(date: Date) {
   return 365
 }
 
-// 获取日期所在的年的开始日期
+// Lấy ngày đầu năm
 export function getStartOfYear(date: Date) {
   const year = date.getFullYear()
   return new Date(year, 0, 1)
 }
 
-// 获取日期所在的天的开始日期
+// Lấy ngày đầu ngày
 export function getStartOfDay(date: Date) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate())
 }
